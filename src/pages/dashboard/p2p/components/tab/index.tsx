@@ -41,16 +41,18 @@ export default Tab;
 
 const Container = styled.div`
   width: fit-content;
-  display: flex;
+  display: grid;
   align-items: center;
   border-radius: 0.8rem;
   background-color: #f9fafb;
   padding: 0.5rem;
   border: 1px solid #f2f4f7;
+  grid-template-columns: auto auto;
+  grid-column-gap: 0.8rem;
 `;
 
 const TabItem = styled.div<{ active: string }>`
-  padding: 1.6rem 4rem;
+  padding: 1.2rem 1.6rem;
   color: ${(props) => (props.active === "true" ? Colors.D700 : Colors.D200)};
   background-color: ${(props) =>
     props.active === "true" ? Colors.D0 : "transparent"};

@@ -49,8 +49,8 @@ const PageHeader = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 2rem;
-  height: 6rem;
+  margin-bottom: 4rem;
+  height: 5rem;
 `;
 
 const AdButton = styled.div`
@@ -59,5 +59,5 @@ const AdButton = styled.div`
 
 const Table = styled.div`
   width: 100%;
-  margin-top: 3rem;
+  margin-top: 3.2rem;
 `;

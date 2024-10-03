@@ -64,7 +64,7 @@ const Container = styled.div`
 `;
 
 const TableContainer = styled.table`
-  margin-top: 3rem;
+  margin-top: 4rem;
   margin-bottom: 6.4rem;
   width: 100%;
   color: white;
@@ -91,6 +91,6 @@ const TableContainer = styled.table`
   td {
     color: #e4e4e4;
     padding: 1.2rem 0;
-    padding-bottom: 5rem;
+    padding-bottom: 4rem;
   }
 `;
