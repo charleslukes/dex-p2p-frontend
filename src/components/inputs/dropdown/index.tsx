@@ -1,3 +1,4 @@
+import Info from "components/info";
 import Typography from "components/typography";
 import { Colors } from "constants/colors";
 import { useClickOutside } from "hooks/UseClickOutside";
@@ -9,12 +10,20 @@ interface IProps {
   selectItem?: (value: string) => void;
   chosenItem?: string;
   placeholder?: string;
+  label?: string;
+  info?: string;
+  padding?: string;
+  m_padding?: string;
 }
 const Dropdown = ({
   chosenItem = "",
   items = [],
   selectItem = () => {},
-  placeholder = "None"
+  placeholder = "None",
+  label,
+  info = "",
+  padding = "0.8rem",
+  m_padding = padding
 }: IProps) => {
   const [open, setOpen] = useState(false);
 
@@ -26,7 +35,17 @@ const Dropdown = ({
 
   return (
     <Container ref={ref}>
+      {label && (
+        <LabelContainer>
+          <Typography color={"#5D6B82"} weight="medium" align="left">
+            {label}
+          </Typography>
+          {info?.length > 0 && <Info text={info} />}
+        </LabelContainer>
+      )}
       <Body
+        m_padding={m_padding}
+        padding={padding}
         open={open ? "true" : "false"}
         onClick={() => {
           setOpen(!open);
@@ -82,16 +101,26 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const Body = styled.div<{ open: string }>`
+const LabelContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.4rem;
+`;
+
+const Body = styled.div<{ open: string; padding: string; m_padding: string }>`
   width: 100%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.8rem;
+  padding: ${(props) => props.padding};
   border-radius: 0.8rem;
   border: 1px solid
     ${(props) => (props.open === "true" ? "#E2E4E9" : "#E2E4E9")};
+
+  @media only screen and (max-width: 769px) {
+    padding: ${(props) => props.m_padding};
+  }
 `;
 
 const Caret = styled.div<{ isactive: string }>`
@@ -103,7 +132,7 @@ const Caret = styled.div<{ isactive: string }>`
 const Drop = styled.div`
   position: absolute;
   width: 100%;
-  background-color: ${""};
+  background-color: white;
   border-radius: 0.8rem;
   box-shadow: 0px 4px 8px 7px rgba(34, 34, 34, 0.1);
   height: fit-content;

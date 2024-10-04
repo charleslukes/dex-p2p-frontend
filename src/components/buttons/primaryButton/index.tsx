@@ -16,7 +16,6 @@ interface IProps extends React.HTMLProps<HTMLButtonElement> {
 }
 const PrimaryButton = ({
   text = "Button",
-
   variant, //danger outline
   onClick = () => {},
   loading,
@@ -61,6 +60,7 @@ interface IButtonProps extends React.HTMLProps<HTMLButtonElement> {
 const Container = styled.button<IButtonProps>`
   all: unset;
   width: 100%;
+  box-sizing: border-box;
   background-color: ${(props) =>
     props.variant === "danger"
       ? "#DF1C41"

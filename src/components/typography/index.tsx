@@ -9,6 +9,7 @@ interface IProps {
   weight?: string;
   decoration?: string;
   variant?: "h1" | "h2" | "h3" | "p";
+  fontStyle?: "normal" | "italic";
   //margin
   m?: string;
   mt?: string;
@@ -28,7 +29,7 @@ interface IProps {
   //
   lh?: string;
   m_lh?: string;
-  align?: string;
+  align?: "center" | "right" | "left";
   display?: string;
   m_display?: string;
 }
@@ -61,7 +62,8 @@ const Typography = ({
   align,
   display,
   m_display,
-  variant = "p"
+  variant = "p",
+  fontStyle = "normal"
 }: IProps) => {
   return (
     <Text
@@ -71,6 +73,7 @@ const Typography = ({
       color={color}
       weight={weight}
       decoration={decoration}
+      fontStyle={fontStyle}
       mt={m ? m : my ? my : mt}
       ml={m ? m : mx ? mx : ml}
       mb={m ? m : my ? my : mb}
@@ -94,7 +97,7 @@ export default Typography;
 
 const Text = styled.p<IProps>`
   font-family: "Inter", sans-serif;
-
+  font-style: ${(props) => props.fontStyle};
   font-size: ${(props) =>
     props.size === "xs"
       ? `1rem`

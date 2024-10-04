@@ -19,7 +19,7 @@ const AmountSelector = ({
   return (
     <Container>
       <Label>
-        <Typography weight="medium" mr="0.4">
+        <Typography weight="medium" mr="0.4" color="#5D6B82">
           Amount
         </Typography>
         <InfoIconContainer>
